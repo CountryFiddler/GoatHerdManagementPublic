@@ -30,38 +30,40 @@ import {
 import {API, graphqlOperation} from 'aws-amplify';
 import {createTodo} from '../graphql/mutations'
 import {listTodos} from '../graphql/queries';
+import {createDoes} from "../graphql/mutations";
+import {listDoes} from "../graphql/queries";
 
-const initialState = {name: '', description: ''};
+const initialState = {name: '', description: '', age: '', height: '', breed: '', dob: ''};
 
 const DoesScreen = () => {
     const [formState, setFormState] = useState(initialState);
-    const [todos, setTodos] = useState([]);
+    const [does, setDoes] = useState([]);
 
     useEffect(() => {
-        fetchTodos();
+        fetchDoes();
     }, []);
 
     function setInput(key, value) {
         setFormState({...formState, [key]: value});
     }
 
-    async function fetchTodos() {
+    async function fetchDoes() {
         try {
-            const todoData = await API.graphql(graphqlOperation(listTodos));
-            const todos = todoData.data.listTodos.items;
-            setTodos(todos);
+            const doeData = await API.graphql(graphqlOperation(listDoes));
+            const does = doeData.data.listDoes.items;
+            setDoes(does);
         } catch (err) {
             console.log('error fetching todos');
         }
     }
 
-    async function addTodo() {
+    async function addDoes() {
         try {
             if (!formState.name || !formState.description) return;
-            const todo = {...formState};
-            setTodos([...todos, todo]);
+            const doe = {...formState};
+            setDoes([...does, doe]);
             setFormState(initialState);
-            await API.graphql(graphqlOperation(createTodo, {input: todo}));
+            await API.graphql(graphqlOperation(createDoes, {input: doe}));
         } catch (err) {
             console.log('error creating todo:', err);
         }
@@ -82,13 +84,38 @@ const DoesScreen = () => {
                     value={formState.description}
                     placeholder="Description"
                 />
-                <Pressable onPress={addTodo} style={styles.buttonContainer}>
-                    <Text style={styles.buttonText}>Create todo</Text>
+                <TextInput
+                    onChangeText={value => setInput('age', value)}
+                    style={styles.input}
+                    value={formState.age}
+                    placeholder="Age"
+                />
+                <TextInput
+                    onChangeText={value => setInput('height', value)}
+                    style={styles.input}
+                    value={formState.height}
+                    placeholder="Height"
+                />
+                <TextInput
+                    onChangeText={value => setInput('breed', value)}
+                    style={styles.input}
+                    value={formState.breed}
+                    placeholder="Breed"
+                />
+                <TextInput
+                    onChangeText={value => setInput('dob', value)}
+                    style={styles.input}
+                    value={formState.dob}
+                    placeholder="DOB"
+                />
+                <Pressable onPress={addDoes} style={styles.buttonContainer}>
+                    <Text style={styles.buttonText}>Create Doe</Text>
                 </Pressable>
-                {todos.map((todo, index) => (
-                    <View key={todo.id ? todo.id : index} style={styles.todo}>
-                        <Text style={styles.todoName}>{todo.name}</Text>
-                        <Text style={styles.todoDescription}>{todo.description}</Text>
+                {does.map((doe, index) => (
+                    <View key={doe.id ? doe.id : index} style={styles.todo}>
+                        <Text style={styles.todoName}>{doe.name}</Text>
+                        <Text style={styles.todoDescription}>{doe.description}</Text>
+                        <Text style={styles.todoDescription}>{doe.age}</Text>
                     </View>
                 ))}
             </View>

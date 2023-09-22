@@ -54,6 +54,11 @@ export const createDoes = /* GraphQL */ `
     createDoes(input: $input, condition: $condition) {
       id
       name
+      age
+      height
+      breed
+      dob
+      photo
       description
       createdAt
       updatedAt
@@ -69,6 +74,11 @@ export const updateDoes = /* GraphQL */ `
     updateDoes(input: $input, condition: $condition) {
       id
       name
+      age
+      height
+      breed
+      dob
+      photo
       description
       createdAt
       updatedAt
@@ -84,6 +94,11 @@ export const deleteDoes = /* GraphQL */ `
     deleteDoes(input: $input, condition: $condition) {
       id
       name
+      age
+      height
+      breed
+      dob
+      photo
       description
       createdAt
       updatedAt
