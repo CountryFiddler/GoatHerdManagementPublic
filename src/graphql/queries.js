@@ -39,6 +39,10 @@ export const getDoes = /* GraphQL */ `
       id
       name
       description
+      age
+      height
+      breed
+      dob
       createdAt
       updatedAt
       __typename
@@ -56,6 +60,10 @@ export const listDoes = /* GraphQL */ `
         id
         name
         description
+        age
+        height
+        breed
+        dob
         createdAt
         updatedAt
         __typename

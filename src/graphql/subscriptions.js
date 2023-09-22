@@ -43,6 +43,10 @@ export const onCreateDoes = /* GraphQL */ `
       id
       name
       description
+      age
+      height
+      breed
+      dob
       createdAt
       updatedAt
       __typename
@@ -55,6 +59,10 @@ export const onUpdateDoes = /* GraphQL */ `
       id
       name
       description
+      age
+      height
+      breed
+      dob
       createdAt
       updatedAt
       __typename
@@ -67,6 +75,10 @@ export const onDeleteDoes = /* GraphQL */ `
       id
       name
       description
+      age
+      height
+      breed
+      dob
       createdAt
       updatedAt
       __typename

@@ -11,5 +11,9 @@ type Todo @model {
 type does @model {
   id: ID!
   name: String!
-  description: String
+  description: String!
+  age: String!
+  height:String!
+  breed:String!
+  dob:String!
 }

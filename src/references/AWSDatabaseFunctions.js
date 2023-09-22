@@ -32,8 +32,6 @@ import {createTodo} from '../graphql/mutations'
 import {listTodos} from '../graphql/queries';
 import {createDoes} from "../graphql/mutations";
 import {listDoes} from "../graphql/queries";
-import {fetchDoes} from "../functions/DoeFunctions";
-import CardList from "../components/CardList";
 
 const initialState = {name: '', description: '', age: '', height: '', breed: '', dob: ''};
 
@@ -42,14 +40,14 @@ const DoesScreen = () => {
     const [does, setDoes] = useState([]);
 
     useEffect(() => {
-        fetchDoes(setDoes);
+        fetchDoes();
     }, []);
 
     function setInput(key, value) {
         setFormState({...formState, [key]: value});
     }
 
-    /*async function fetchDoes() {
+    async function fetchDoes() {
         try {
             const doeData = await API.graphql(graphqlOperation(listDoes));
             const does = doeData.data.listDoes.items;
@@ -57,9 +55,9 @@ const DoesScreen = () => {
         } catch (err) {
             console.log('error fetching todos');
         }
-    }*/
+    }
 
-    /*async function addDoes() {
+    async function addDoes() {
         try {
             if (!formState.name || !formState.description) return;
             const doe = {...formState};
@@ -69,11 +67,58 @@ const DoesScreen = () => {
         } catch (err) {
             console.log('error creating todo:', err);
         }
-    }*/
+    }
 
     return (
         <SafeAreaView style={styles.container}>
-            <CardList goats={does}/>
+            <View style={styles.container}>
+                <TextInput
+                    onChangeText={value => setInput('name', value)}
+                    style={styles.input}
+                    value={formState.name}
+                    placeholder="Name"
+                />
+                <TextInput
+                    onChangeText={value => setInput('description', value)}
+                    style={styles.input}
+                    value={formState.description}
+                    placeholder="Description"
+                />
+                <TextInput
+                    onChangeText={value => setInput('age', value)}
+                    style={styles.input}
+                    value={formState.age}
+                    placeholder="Age"
+                />
+                <TextInput
+                    onChangeText={value => setInput('height', value)}
+                    style={styles.input}
+                    value={formState.height}
+                    placeholder="Height"
+                />
+                <TextInput
+                    onChangeText={value => setInput('breed', value)}
+                    style={styles.input}
+                    value={formState.breed}
+                    placeholder="Breed"
+                />
+                <TextInput
+                    onChangeText={value => setInput('dob', value)}
+                    style={styles.input}
+                    value={formState.dob}
+                    placeholder="DOB"
+                />
+                <Pressable onPress={addDoes} style={styles.buttonContainer}>
+                    <Text style={styles.buttonText}>Create Doe</Text>
+                </Pressable>
+                {does.map((doe, index) => (
+                    <View key={doe.id ? doe.id : index} style={styles.todo}>
+                        <Text style={styles.todoName}>{doe.name}</Text>
+                        <Text style={styles.todoDescription}>{doe.description}</Text>
+                        <Text style={styles.todoDescription}>{doe.age}</Text>
+                    </View>
+                ))}
+            </View>
         </SafeAreaView>
     );
 };
