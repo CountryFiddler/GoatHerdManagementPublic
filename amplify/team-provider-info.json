@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-goatherdmanagement-dev-210129-authRole",
+      "UnauthRoleArn": "arn:aws:iam::110422150917:role/amplify-goatherdmanagement-dev-210129-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::110422150917:role/amplify-goatherdmanagement-dev-210129-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-goatherdmanagement-dev-210129-deployment",
+      "UnauthRoleName": "amplify-goatherdmanagement-dev-210129-unauthRole",
+      "StackName": "amplify-goatherdmanagement-dev-210129",
+      "StackId": "arn:aws:cloudformation:us-east-2:110422150917:stack/amplify-goatherdmanagement-dev-210129/b846e1c0-58fc-11ee-b668-06d922cd5ca1",
+      "AmplifyAppId": "d1cpytuak0dppo"
+    }
+  }
+}
