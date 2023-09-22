@@ -10,6 +10,11 @@
       "StackName": "amplify-goatherdmanagement-dev-210129",
       "StackId": "arn:aws:cloudformation:us-east-2:110422150917:stack/amplify-goatherdmanagement-dev-210129/b846e1c0-58fc-11ee-b668-06d922cd5ca1",
       "AmplifyAppId": "d1cpytuak0dppo"
+    },
+    "categories": {
+      "api": {
+        "goatherdmanagement": {}
+      }
     }
   }
 }
