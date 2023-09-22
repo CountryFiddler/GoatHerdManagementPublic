@@ -9,9 +9,18 @@ import MaintenanceScreen from "./src/screens/MaintenanceScreen";
 import {useState} from 'react';
 import { Dimensions, Image } from "react-native";
 import React from 'react';
+import {Amplify} from 'aws-amplify';
+import awsconfig from './src/aws-exports';
 //import AddCustomer from './src/components/AddCustomer';
 const deviceHeight = Dimensions.get('window').height;
 let routeName = 'Home';
+
+Amplify.configure({
+    ...awsconfig,
+    Analytics: {
+        disabled: true,
+    },
+});
 
 const navigator = createStackNavigator(
     {
