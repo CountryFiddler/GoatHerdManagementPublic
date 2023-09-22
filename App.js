@@ -5,6 +5,7 @@ import DoesScreen from "./src/screens/DoesScreen";
 import BucksScreen from "./src/screens/BucksScreen";
 import KiddingScheduleScreen from "./src/screens/KiddingScheduleScreen";
 import MaintenanceScreen from "./src/screens/MaintenanceScreen";
+import GoatProfileScreen from "./src/screens/GoatProfileScreen";
 
 import {useState} from 'react';
 import { Dimensions, Image } from "react-native";
@@ -29,6 +30,7 @@ const navigator = createStackNavigator(
         BucksScreen: BucksScreen,
         KiddingScheduleScreen: KiddingScheduleScreen,
         MaintenanceScreen: MaintenanceScreen,
+        GoatProfileScreen: GoatProfileScreen,
         //AddCustomerComponent: AddCustomer,
     },
     {

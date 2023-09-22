@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import DoeButton from "../components/Buttons/DoeButton"
 import BuckButton from "../components/Buttons/BuckButton";
 import KiddingScheduleButton from "../components/Buttons/KiddingScheduleButton";
@@ -19,16 +19,43 @@ import {
     Platform,
 } from 'react-native';
 
+import {getDoes} from "../graphql/queries";
+import {fetchDoes, getDoe} from "../functions/DoeFunctions";
+
 // Start of Home Screen Display
 const Card = props => {
+  //  let goatName = props.goat.name;
+    //const goatDescription = props.goat.description;
+   // const goatAge = props.goat.age;
+    //const goat = getDoes(props.goat.id);
+    const [goat, setGoat] = useState([]);
+    const [goatName, setGoatName] = useState(props.goat.name);
+    const [goatDescription, setGoatDescription] = useState(props.goat.description);
+    const [goatAge, setGoatAge] = useState([]);
+    //console.log(props.goat.name);
+    //console.log(goat);
+
+    useEffect(() => {
+        getDoe(props.goat.id, setGoat);
+    }, []);
+    console.log(goat);
 
     return (
         <SafeAreaView>
-            <View>
+            <TouchableOpacity            onPress={() =>
+                props.navigation.navigate('GoatProfileScreen', {
+                    navigation: props.navigation,
+                    goatID: props.goatID,
+                    goat: goat,
+                    goatName: goat.name,
+                    goatDescription: goatDescription,
+                    goatAge: goatAge,
+
+                })
+            }>
                 <Text style={styles.todoName}>{props.goat.name}</Text>
-                <Text style={styles.todoDescription}>{props.goat.description}</Text>
-                <Text style={styles.todoDescription}>{props.goat.age}</Text>
-            </View>
+
+            </TouchableOpacity>
         </SafeAreaView>
     );
 };

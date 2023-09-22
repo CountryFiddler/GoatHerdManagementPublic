@@ -37,7 +37,7 @@ import CardList from "../components/CardList";
 
 const initialState = {name: '', description: '', age: '', height: '', breed: '', dob: ''};
 
-const DoesScreen = () => {
+const DoesScreen = props => {
     const [formState, setFormState] = useState(initialState);
     const [does, setDoes] = useState([]);
 
@@ -73,7 +73,7 @@ const DoesScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <CardList goats={does}/>
+            <CardList goats={does} navigation={props.navigation}/>
         </SafeAreaView>
     );
 };

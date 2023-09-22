@@ -18,53 +18,34 @@ import {
     Alert,
     Platform,
 } from 'react-native';
-import Card from "./Card";
-import {useEffect} from "@types/react";
-import {fetchDoes, getDoeIDs} from "../functions/DoeFunctions";
 
 // Start of Home Screen Display
-const CardList = props => {
-    /*const [goatIDs, setGoatIDs] = useState([]);
-
-
-    useEffect(() => {
-        getDoeIDs(setGoatIDs);
-    }, []);*/
-
+const GoatProfileScreen = props => {
+    console.log(props.params.goatName);
     return (
         <SafeAreaView>
             <View>
-                {props.goats.map((goat, index) => (
-                    <View key={goat.id ? goat.id : index}>
-                        <TouchableOpacity            onPress={() =>
-                            props.navigation.navigate('GoatProfileScreen', {
-                                navigation: props.navigation,
-                                goatName: goat.name,
-                                goatID: props.goatID,
-                                goat: goat,
-
-                            })
-                        }>
-                            <Text style={styles.todoName}>{goat.name}</Text>
-
-                        </TouchableOpacity>
-                    </View>
-                ))}
+                <Text>Goat Profile Screen</Text>
+                <Text style={styles.todoName}>{props.goatName}</Text>
+                <Text style={styles.todoDescription}>{props.goatDescription}</Text>
+                <Text style={styles.todoDescription}>{props.goatAge}</Text>
             </View>
         </SafeAreaView>
     );
 };
 
-export default CardList;
 const styles = StyleSheet.create({
     container: {width: 400, flex: 1, padding: 20, alignSelf: 'center'},
     todo: {marginBottom: 15},
     input: {backgroundColor: '#ddd', marginBottom: 10, padding: 8, fontSize: 18},
-    todoName: {fontSize: 20, fontWeight: 'bold'},
+    todoName: {fontSize: 20, fontWeight: 'bold', marginLeft: 15},
     buttonContainer: {
         alignSelf: 'center',
         backgroundColor: 'black',
         paddingHorizontal: 8,
     },
+    todoDescription: {marginLeft: 15},
     buttonText: {color: 'white', padding: 16, fontSize: 18},
 });
+
+export default GoatProfileScreen;
