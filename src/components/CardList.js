@@ -31,23 +31,13 @@ const CardList = props => {
         getDoeIDs(setGoatIDs);
     }, []);*/
 
+    //const goats = props.navigation.getParam('goats');
     return (
         <SafeAreaView>
-            <View>
+            <View style={styles.cardContainer}>
                 {props.goats.map((goat, index) => (
                     <View key={goat.id ? goat.id : index}>
-                        <TouchableOpacity            onPress={() =>
-                            props.navigation.navigate('GoatProfileScreen', {
-                                navigation: props.navigation,
-                                goatName: goat.name,
-                                goatID: props.goatID,
-                                goat: goat,
-
-                            })
-                        }>
-                            <Text style={styles.todoName}>{goat.name}</Text>
-
-                        </TouchableOpacity>
+                        <Card goat={goat} navigation={props.navigation}/>
                     </View>
                 ))}
             </View>
@@ -67,4 +57,5 @@ const styles = StyleSheet.create({
         paddingHorizontal: 8,
     },
     buttonText: {color: 'white', padding: 16, fontSize: 18},
+    cardContainer: {flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center'},
 });

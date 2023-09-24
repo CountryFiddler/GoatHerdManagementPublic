@@ -19,7 +19,7 @@ import {
 const DoeButton = props => {
 
     return (
-        <SafeAreaView>
+        <SafeAreaView style={props.style}>
             <View>
                 <Button  onPress={() => props.navigation.navigate('DoesScreen')}
                          title= {props.buttonTitle}

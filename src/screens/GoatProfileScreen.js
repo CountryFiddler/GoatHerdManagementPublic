@@ -21,14 +21,16 @@ import {
 
 // Start of Home Screen Display
 const GoatProfileScreen = props => {
-    console.log(props.params.goatName);
+    //console.log(props.goatName);
+    const goat = props.navigation.getParam('goat');
     return (
         <SafeAreaView>
             <View>
                 <Text>Goat Profile Screen</Text>
-                <Text style={styles.todoName}>{props.goatName}</Text>
-                <Text style={styles.todoDescription}>{props.goatDescription}</Text>
-                <Text style={styles.todoDescription}>{props.goatAge}</Text>
+                <Text style={styles.todoName}>{goat.name}</Text>
+                <Text style={styles.todoDescription}>{goat.description}</Text>
+                <Text style={styles.todoDescription}>{goat.age}</Text>
+                <Text style={styles.todoDescription}>{goat.dob}</Text>
             </View>
         </SafeAreaView>
     );

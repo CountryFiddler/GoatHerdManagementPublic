@@ -28,8 +28,8 @@ const Card = props => {
     //const goatDescription = props.goat.description;
    // const goatAge = props.goat.age;
     //const goat = getDoes(props.goat.id);
-    const [goat, setGoat] = useState([]);
-    const [goatName, setGoatName] = useState(props.goat.name);
+   // const goat = props.navigation.getParam('goat')
+   /* const [goatName, setGoatName] = useState(props.goat.name);
     const [goatDescription, setGoatDescription] = useState(props.goat.description);
     const [goatAge, setGoatAge] = useState([]);
     //console.log(props.goat.name);
@@ -38,18 +38,14 @@ const Card = props => {
     useEffect(() => {
         getDoe(props.goat.id, setGoat);
     }, []);
-    console.log(goat);
+    console.log(goat);*/
 
     return (
         <SafeAreaView>
             <TouchableOpacity            onPress={() =>
                 props.navigation.navigate('GoatProfileScreen', {
                     navigation: props.navigation,
-                    goatID: props.goatID,
-                    goat: goat,
-                    goatName: goat.name,
-                    goatDescription: goatDescription,
-                    goatAge: goatAge,
+                    goat: props.goat,
 
                 })
             }>

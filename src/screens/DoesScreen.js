@@ -24,7 +24,7 @@ import {
     View,
     TextInput,
     Pressable,
-    SafeAreaView,
+    SafeAreaView, TouchableOpacity,
 } from 'react-native';
 
 import {API, graphqlOperation} from 'aws-amplify';
@@ -34,6 +34,7 @@ import {createDoes} from "../graphql/mutations";
 import {listDoes} from "../graphql/queries";
 import {fetchDoes} from "../functions/DoeFunctions";
 import CardList from "../components/CardList";
+import Card from "../components/Card";
 
 const initialState = {name: '', description: '', age: '', height: '', breed: '', dob: ''};
 
@@ -73,7 +74,9 @@ const DoesScreen = props => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <CardList goats={does} navigation={props.navigation}/>
+            <View>
+                <CardList goats={does} navigation={props.navigation}/>
+            </View>
         </SafeAreaView>
     );
 };
