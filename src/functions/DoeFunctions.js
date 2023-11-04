@@ -5,10 +5,11 @@ import * as queries from "../graphql/queries";
 export async function fetchDoes(setDoes) {
     try {
         const doeData = await API.graphql(graphqlOperation(listDoes));
+        console.log('error fetching todos 1');
         const does = doeData.data.listDoes.items;
         setDoes(does);
     } catch (err) {
-        console.log('error fetching todos');
+        console.log(err);
     }
 }
 
@@ -44,5 +45,26 @@ export async function getDoeIDs(id, setIDs) {
         setIDs(ids);
     } catch (err) {
         console.log('error fetching todos');
+    }
+}
+
+export async function getDoeIDs(id, setIDs) {
+    try {
+        const doeData = await API.graphql(graphqlOperation(listDoes));
+        const ids = doeData.data.listDoes.items.id;
+        setIDs(ids);
+    } catch (err) {
+        console.log('error fetching todos');
+    }
+}
+
+export async function createDoe(newDoeData) {
+    try {
+        const newDoe = await API.graphql({
+            query: mutations.createDoes,
+            variables: {input: newDoeData}
+        });
+    } catch (err) {
+        console.log('Error Creating Does');
     }
 }
