@@ -22,6 +22,7 @@ const AddGoatButton = props => {
         <SafeAreaView style={props.style}>
             <View>
                 <Button  onPress={() => props.navigation.navigate('AddGoatScreen')}
+                         navigation={props.navigation}
                          title= {props.buttonTitle}
                          color="#841584"
                          accessibilityLabel="AddGoatScreen Page Button"

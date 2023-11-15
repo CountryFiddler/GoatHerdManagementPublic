@@ -23,7 +23,16 @@ const AddGoatScreen = props => {
     const [height, setHeight] = useState('');
     const [breed, setBreed] = useState('');
     const [dob, setDob] = useState('');
-    const [goatData, setGoatData] = useState('');
+    //const [goatData, setGoatData] = useState('');
+    const goatData = {
+        name: name,
+        description: description,
+        age: age,
+        height: height,
+        breed: breed,
+        dob: dob,
+        __typename: props.typeName,
+    }
 
     return (
         <View >
@@ -68,19 +77,8 @@ const AddGoatScreen = props => {
             />
             <Button
                 onPress={() => {
-                        setGoatData([
-                            {
-                                name: name,
-                                description: description,
-                                age: age,
-                                height: height,
-                                breed: breed,
-                                dob: dob,
-                                __typename: typeName,
-                            }
-                        ]);
-                    createDoe(goatData)
-
+                    createDoe(goatData);
+                    props.navigation.navigate('DoesScreen')
                 }} title={'Submit'}>
             </Button>
         </View>

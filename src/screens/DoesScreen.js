@@ -1,23 +1,8 @@
-/*import {Component} from "react";
-import {Button, SafeAreaView, Text, View} from "react-native";
+import  {useEffect, useState} from 'react';
+import * as React from 'react';
 
 
 
-const DoesScreen = props => {
-
-    return (
-        <View >
-            <Text>
-                Does
-
-            </Text>
-        </View>
-    );
-};
-
-export default DoesScreen;*/
-
-import React, {useEffect, useState} from 'react';
 import {
     StyleSheet,
     Text,
@@ -37,15 +22,25 @@ import CardList from "../components/CardList";
 import AddGoatButton from "../components/Buttons/AddGoatButton";
 
 
+
 const initialState = {name: '', description: '', age: '', height: '', breed: '', dob: ''};
 
 const DoesScreen = props => {
     const [formState, setFormState] = useState(initialState);
     const [does, setDoes] = useState([]);
+    const navigation = props.navigation;
+
+
 
     useEffect(() => {
-        fetchDoes(setDoes);
+        console.log('Re-Rendered')
+        console.log('Re-Rendered 1')
+            // The screen is focused
+            // Call any action and update data
+            fetchDoes(setDoes)
     }, []);
+
+
 
     function setInput(key, value) {
         setFormState({...formState, [key]: value});
