@@ -59,3 +59,40 @@ export async function createDoe(newDoeData) {
         console.log(err);
     }
 }
+
+/*
+      id
+      name
+      description
+      age
+      height
+      breed
+      dob
+      createdAt
+      updatedAt
+      __typename
+
+      input: {
+                name: doeData.name,
+                id: doeData.id,
+                description: doeData.description,
+                age: doeData.age,
+                height: doeData.height,
+                breed: doeData.breed,
+                dob: doeData.dob,
+                createdAt: doeData.createdAt,
+                updatedAt: doeData.updatedAt,
+                __typename: doeData.__typename
+                } */
+
+export async function deleteDoe(doeData) {
+    try {
+        console.log("TEST " + doeData);
+        const deleteDoe = await API.graphql({
+            query: mutations.deleteDoes,
+            variables: {input: doeData }
+        });
+    } catch (err) {
+        console.log(err);
+    }
+}

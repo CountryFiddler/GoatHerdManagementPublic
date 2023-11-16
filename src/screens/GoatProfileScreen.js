@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {deleteDoe} from "../functions/DoeFunctions";
 import DoeButton from "../components/Buttons/DoeButton"
 import BuckButton from "../components/Buttons/BuckButton";
 import KiddingScheduleButton from "../components/Buttons/KiddingScheduleButton";
@@ -21,8 +22,8 @@ import {
 
 // Start of Home Screen Display
 const GoatProfileScreen = props => {
-    //console.log(props.goatName);
-    const goat = props.navigation.getParam('goat');
+    const goat = props.route.params.goat;
+    console.log(goat.__typename);
     return (
         <SafeAreaView>
             <View>
@@ -32,6 +33,7 @@ const GoatProfileScreen = props => {
                 <Text style={styles.todoDescription}>{goat.age}</Text>
                 <Text style={styles.todoDescription}>{goat.dob}</Text>
             </View>
+            <Button title={'Delete Goat'} onPress={() => {deleteDoe(goat); props.navigation.navigate('DoesScreen')}}>Delete</Button>
         </SafeAreaView>
     );
 };

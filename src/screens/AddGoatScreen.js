@@ -31,7 +31,6 @@ const AddGoatScreen = props => {
         height: height,
         breed: breed,
         dob: dob,
-        __typename: props.typeName,
     }
 
     return (

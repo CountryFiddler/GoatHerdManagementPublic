@@ -1,5 +1,6 @@
 import  {useEffect, useState} from 'react';
 import * as React from 'react';
+import {useIsFocused} from '@react-navigation/native'
 
 
 
@@ -28,7 +29,8 @@ const initialState = {name: '', description: '', age: '', height: '', breed: '',
 const DoesScreen = props => {
     const [formState, setFormState] = useState(initialState);
     const [does, setDoes] = useState([]);
-    const navigation = props.navigation;
+    //const navigation = props.navigation;
+    const isFocused = useIsFocused();
 
 
 
@@ -37,8 +39,11 @@ const DoesScreen = props => {
         console.log('Re-Rendered 1')
             // The screen is focused
             // Call any action and update data
+        if (isFocused) {
             fetchDoes(setDoes)
-    }, []);
+            console.log(does);
+        }
+    }, [isFocused]);
 
 
 

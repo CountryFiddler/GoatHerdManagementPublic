@@ -1,5 +1,5 @@
 import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import {HomeScreen} from './src/screens/HomeScreen';
 import DoesScreen from "./src/screens/DoesScreen";
 import BucksScreen from "./src/screens/BucksScreen";
@@ -15,6 +15,7 @@ import { Dimensions, Image } from "react-native";
 import React from 'react';
 import {Amplify} from 'aws-amplify';
 import awsconfig from './src/aws-exports';
+import {NavigationContainer} from "@react-navigation/native";
 //import AddCustomer from './src/components/AddCustomer';
 const deviceHeight = Dimensions.get('window').height;
 let routeName = 'Home';
@@ -26,7 +27,7 @@ Amplify.configure({
     },
 });
 
-const navigator = createStackNavigator(
+/*const navigator = createStackNavigator(
     {
         Home: HomeScreen,
         DoesScreen: DoesScreen,
@@ -40,9 +41,55 @@ const navigator = createStackNavigator(
     {
         initialRouteName: routeName,
     },
-);
+);*/
+const Stack = createStackNavigator();
 
-export default createAppContainer(navigator);
+//const App = () => {
+function StackNavigator() {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator
+            initialRouteName="Home">
+                <Stack.Screen
+                    name="Home"
+                    component={HomeScreen}
+                    />
+                <Stack.Screen
+                    name="DoesScreen"
+                    component={DoesScreen}
+                />
+                <Stack.Screen
+                    name="BucksScreen"
+                    component={BucksScreen}
+                />
+                <Stack.Screen
+                    name="KiddingScheduleScreen"
+                    component={KiddingScheduleScreen}
+                />
+                <Stack.Screen
+                    name="MaintenanceScreen"
+                    component={MaintenanceScreen}
+                />
+                <Stack.Screen
+                    name="GoatProfileScreen"
+                    component={GoatProfileScreen}
+                />
+                <Stack.Screen
+                    name="AddGoatScreen"
+                    component={AddGoatScreen}
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
+    )
+}
+
+//const AppContainer = createAppContainer(Stack);
+//export default createAppContainer(StackNavigator);
+export default function App() {
+    return (
+        <StackNavigator/>
+    );
+}
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
