@@ -87,7 +87,7 @@ export async function createDoe(newDoeData) {
 
 export async function deleteDoe(doeData) {
     try {
-        console.log("TEST " + doeData);
+        console.log(doeData);
         const deleteDoe = await API.graphql({
             query: mutations.deleteDoes,
             variables: {input: doeData }

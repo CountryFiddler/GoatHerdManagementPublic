@@ -41,7 +41,6 @@ const DoesScreen = props => {
             // Call any action and update data
         if (isFocused) {
             fetchDoes(setDoes)
-            console.log(does);
         }
     }, [isFocused]);
 

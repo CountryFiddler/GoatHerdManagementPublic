@@ -7,6 +7,8 @@ import KiddingScheduleScreen from "./src/screens/KiddingScheduleScreen";
 import MaintenanceScreen from "./src/screens/MaintenanceScreen";
 import GoatProfileScreen from "./src/screens/GoatProfileScreen";
 import AddGoatScreen from "./src/screens/AddGoatScreen";
+import Constants from 'expo-constants';
+console.log(Constants.systemFonts);
 
 
 

@@ -23,7 +23,12 @@ import {
 // Start of Home Screen Display
 const GoatProfileScreen = props => {
     const goat = props.route.params.goat;
-    console.log(goat.__typename);
+    /* TO DELETE A GOAT IMPORTANT!!!
+     You have to extract the ID like like or else
+     The variables input contains a field that is not defined for input object type error is thrown */
+    const goatID = {
+        id: goat.id
+    };
     return (
         <SafeAreaView>
             <View>
@@ -33,7 +38,7 @@ const GoatProfileScreen = props => {
                 <Text style={styles.todoDescription}>{goat.age}</Text>
                 <Text style={styles.todoDescription}>{goat.dob}</Text>
             </View>
-            <Button title={'Delete Goat'} onPress={() => {deleteDoe(goat); props.navigation.navigate('DoesScreen')}}>Delete</Button>
+            <Button title={'Delete Goat'} onPress={() => {deleteDoe(goatID); props.navigation.navigate('DoesScreen')}}>Delete</Button>
         </SafeAreaView>
     );
 };
