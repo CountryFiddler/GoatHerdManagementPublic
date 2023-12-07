@@ -1,37 +1,14 @@
-import React, {useState} from 'react';
-import DoeButton from "../components/Buttons/DoeButton"
-import BuckButton from "../components/Buttons/BuckButton";
-import KiddingScheduleButton from "../components/Buttons/KiddingScheduleButton";
-import MaintenanceButton from "../components/Buttons/MaintenanceButton";
+import React from 'react';
 import {
-    Text,
     StyleSheet,
     View,
-    Button,
     SafeAreaView,
-    TextInput,
-    TouchableOpacity,
-    Image,
-    ScrollView,
-    StatusBar,
-    TouchableWithoutFeedback,
-    Alert,
-    Platform,
+
 } from 'react-native';
 import Card from "./Card";
-import {useEffect} from "@types/react";
-import {fetchDoes, getDoeIDs} from "../functions/DoeFunctions";
 
-// Start of Home Screen Display
 const CardList = props => {
-    /*const [goatIDs, setGoatIDs] = useState([]);
 
-
-    useEffect(() => {
-        getDoeIDs(setGoatIDs);
-    }, []);*/
-
-    //const goats = props.navigation.getParam('goats');
     return (
         <SafeAreaView>
             <View style={styles.cardContainer}>

@@ -13,15 +13,6 @@ export async function fetchDoes(setDoes) {
     }
 }
 
-/*export async function getDoe(id, setDoe) {
-    try {
-        const doeData = await API.graphql(graphqlOperation(getDoes(id)));
-        const doe = doeData.data.getDoes.items;
-        setDoe(doe);
-    } catch (err) {
-        console.log('error fetching todos');
-    }
-}*/
 
 export async function getDoe(id, setDoe) {
     console.log(id);
@@ -59,31 +50,6 @@ export async function createDoe(newDoeData) {
         console.log(err);
     }
 }
-
-/*
-      id
-      name
-      description
-      age
-      height
-      breed
-      dob
-      createdAt
-      updatedAt
-      __typename
-
-      input: {
-                name: doeData.name,
-                id: doeData.id,
-                description: doeData.description,
-                age: doeData.age,
-                height: doeData.height,
-                breed: doeData.breed,
-                dob: doeData.dob,
-                createdAt: doeData.createdAt,
-                updatedAt: doeData.updatedAt,
-                __typename: doeData.__typename
-                } */
 
 export async function deleteDoe(doeData) {
     try {

@@ -1,21 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
-    Text,
-    StyleSheet,
     View,
     Button,
     SafeAreaView,
-    TextInput,
-    TouchableOpacity,
-    Image,
-    ScrollView,
-    StatusBar,
-    TouchableWithoutFeedback,
-    Alert,
-    Platform,
 } from 'react-native';
 
-// Start of Home Screen Display
 const BuckButton = props => {
 
     return (

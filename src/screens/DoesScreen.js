@@ -6,18 +6,10 @@ import {useIsFocused} from '@react-navigation/native'
 
 import {
     StyleSheet,
-    Text,
     View,
-    TextInput,
-    Pressable,
-    SafeAreaView, TouchableOpacity,
+    SafeAreaView,
 } from 'react-native';
 
-import {API, graphqlOperation} from 'aws-amplify';
-import {createTodo} from '../graphql/mutations'
-import {listTodos} from '../graphql/queries';
-import {createDoes} from "../graphql/mutations";
-import {listDoes} from "../graphql/queries";
 import {fetchDoes} from "../functions/DoeFunctions";
 import CardList from "../components/CardList";
 import AddGoatButton from "../components/Buttons/AddGoatButton";
@@ -29,7 +21,6 @@ const initialState = {name: '', description: '', age: '', height: '', breed: '',
 const DoesScreen = props => {
     const [formState, setFormState] = useState(initialState);
     const [does, setDoes] = useState([]);
-    //const navigation = props.navigation;
     const isFocused = useIsFocused();
 
 
@@ -50,27 +41,6 @@ const DoesScreen = props => {
         setFormState({...formState, [key]: value});
     }
 
-    /*async function fetchDoes() {
-        try {
-            const doeData = await API.graphql(graphqlOperation(listDoes));
-            const does = doeData.data.listDoes.items;
-            setDoes(does);
-        } catch (err) {
-            console.log('error fetching todos');
-        }
-    }*/
-
-    /*async function addDoes() {
-        try {
-            if (!formState.name || !formState.description) return;
-            const doe = {...formState};
-            setDoes([...does, doe]);
-            setFormState(initialState);
-            await API.graphql(graphqlOperation(createDoes, {input: doe}));
-        } catch (err) {
-            console.log('error creating todo:', err);
-        }
-    }*/
 
     return (
         <SafeAreaView style={styles.container}>

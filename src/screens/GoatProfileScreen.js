@@ -1,26 +1,13 @@
 import React, {useState} from 'react';
 import {deleteDoe} from "../functions/DoeFunctions";
-import DoeButton from "../components/Buttons/DoeButton"
-import BuckButton from "../components/Buttons/BuckButton";
-import KiddingScheduleButton from "../components/Buttons/KiddingScheduleButton";
-import MaintenanceButton from "../components/Buttons/MaintenanceButton";
 import {
     Text,
     StyleSheet,
     View,
     Button,
     SafeAreaView,
-    TextInput,
-    TouchableOpacity,
-    Image,
-    ScrollView,
-    StatusBar,
-    TouchableWithoutFeedback,
-    Alert,
-    Platform,
 } from 'react-native';
 
-// Start of Home Screen Display
 const GoatProfileScreen = props => {
     const goat = props.route.params.goat;
     /* TO DELETE A GOAT IMPORTANT!!!

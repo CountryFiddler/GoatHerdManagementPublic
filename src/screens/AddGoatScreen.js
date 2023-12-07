@@ -1,17 +1,6 @@
-import {Component} from "react";
-import {Button, SafeAreaView, Text, TextComponent, TextInput, View} from "react-native";
+import {Button, Text, TextInput, View} from "react-native";
 import {useState} from "react/index";
 import {createDoe} from "../functions/DoeFunctions";
-
-/*
-      name
-      description
-      age
-      height
-      breed
-      dob
- */
-
 
 const AddGoatScreen = props => {
 
@@ -23,7 +12,6 @@ const AddGoatScreen = props => {
     const [height, setHeight] = useState('');
     const [breed, setBreed] = useState('');
     const [dob, setDob] = useState('');
-    //const [goatData, setGoatData] = useState('');
     const goatData = {
         name: name,
         description: description,
